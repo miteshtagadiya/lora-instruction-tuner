@@ -1,0 +1,7 @@
+{
+  "mode": "dry-run",
+  "train_size": 8,
+  "eval_size": 4,
+  "model_name": "sshleifer/tiny-gpt2",
+  "note": "Sample artifact from dry-run. Replace after a real train."
+}

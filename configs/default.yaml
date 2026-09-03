@@ -1,0 +1,11 @@
+model_name: sshleifer/tiny-gpt2
+output_dir: outputs/tiny-lora
+max_steps: 20
+learning_rate: 2.0e-4
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+train_file: data/train.jsonl
+eval_file: data/eval.jsonl
+max_length: 128
+seed: 42

@@ -1,0 +1,8 @@
+{"instruction": "Summarize the text.", "input": "LoRA freezes base weights and trains low-rank adapters.", "output": "LoRA trains small adapters while freezing the base model."}
+{"instruction": "Explain eval harness.", "input": "An eval harness runs fixed cases and scores model answers.", "output": "It scores model answers on a fixed test set for regressions."}
+{"instruction": "What is prompt versioning?", "input": "Keeping numbered prompt templates and comparing outputs.", "output": "Prompt versioning tracks templates so you can A/B outputs."}
+{"instruction": "Define faithfulness in RAG.", "input": "The answer should stick to retrieved context.", "output": "Faithfulness means the answer is supported by retrieved docs."}
+{"instruction": "Name one PEFT method.", "input": "", "output": "LoRA (Low-Rank Adaptation)."}
+{"instruction": "Why use tiny models in CI?", "input": "Full fine-tunes are expensive.", "output": "Tiny models keep demos and smoke tests cheap and fast."}
+{"instruction": "What does temperature control?", "input": "Sampling randomness in generation.", "output": "Higher temperature increases randomness; lower is more deterministic."}
+{"instruction": "List one RAG failure mode.", "input": "", "output": "Retrieving irrelevant chunks that confuse the generator."}

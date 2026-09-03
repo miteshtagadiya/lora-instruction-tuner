@@ -1,0 +1,4 @@
+{"instruction": "Summarize the text.", "input": "Offline evals catch prompt regressions before production.", "output": "Offline evals catch prompt regressions early."}
+{"instruction": "Explain LoRA briefly.", "input": "", "output": "LoRA adds trainable low-rank matrices to frozen weights."}
+{"instruction": "What is a scorer?", "input": "A function that grades model output vs expected.", "output": "A scorer grades outputs against expectations or rubrics."}
+{"instruction": "Why log metrics JSON?", "input": "", "output": "So runs are comparable and CI can fail on regressions."}
