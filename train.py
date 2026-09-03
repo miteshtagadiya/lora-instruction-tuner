@@ -12,7 +12,29 @@ import json
 import random
 from pathlib import Path
 
-import yaml
+
+def load_yaml(path: Path) -> dict:
+    try:
+        import yaml
+
+        return yaml.safe_load(path.read_text())
+    except ImportError:
+        # Minimal fallback so --dry-run works without PyYAML installed
+        cfg = {}
+        for line in path.read_text().splitlines():
+            line = line.strip()
+            if not line or line.startswith("#") or ":" not in line:
+                continue
+            key, val = line.split(":", 1)
+            key, val = key.strip(), val.strip().strip('"').strip("'")
+            if val.replace(".", "", 1).isdigit() or (val.endswith("e-4") or "e-" in val):
+                try:
+                    cfg[key] = float(val) if ("." in val or "e" in val.lower()) else int(val)
+                    continue
+                except ValueError:
+                    pass
+            cfg[key] = val
+        return cfg
 
 
 def load_jsonl(path: Path) -> list[dict]:
@@ -44,7 +66,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    cfg = yaml.safe_load(Path(args.config).read_text())
+    cfg = load_yaml(Path(args.config))
     train = load_jsonl(Path(cfg["train_file"]))
     eval_rows = load_jsonl(Path(cfg["eval_file"]))
     random.seed(cfg.get("seed", 42))
